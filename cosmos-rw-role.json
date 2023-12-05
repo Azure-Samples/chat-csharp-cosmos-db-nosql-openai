@@ -1,0 +1,16 @@
+{
+    "RoleName": "Azure Cosmos DB NoSQL Read/Write User",
+    "Type": "CustomRole",
+    "AssignableScopes": [
+        "/"
+    ],
+    "Permissions": [
+        {
+            "DataActions": [
+                "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*"
+            ]
+        }
+    ]
+}

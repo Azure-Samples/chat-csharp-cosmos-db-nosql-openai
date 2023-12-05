@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Cosmos.Chat.GPT</RootNamespace>
+    <UserSecretsId>ec922dc1-274e-470a-991c-dfed33c38e3e</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.*" />
+    <PackageReference Include="Humanizer" Version="2.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.*" />
+    <PackageReference Include="SharpToken" Version="1.*" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.8" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.*" />
+  </ItemGroup>
+</Project>
