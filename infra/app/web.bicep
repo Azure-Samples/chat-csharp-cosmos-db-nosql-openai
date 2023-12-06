@@ -66,7 +66,7 @@ module containerAppsApp '../core/host/container-apps/app.bicep' = {
         value: '2000' // Static value
       }
       {
-        name: 'AZURE_MANAGED_IDENTITY_CLIENT_ID' // Name of the environment variable referenced in the application
+        name: 'AZURE_CLIENT_ID' // Name of the environment variable referenced in the application
         secretRef: 'azure-managed-identity-client-id' // Reference to secret
       }
     ]

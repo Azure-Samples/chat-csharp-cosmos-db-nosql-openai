@@ -12,6 +12,7 @@ param principalId string
   'Group'
   'ServicePrincipal'
   'User'
+  'None'
 ])
 @description('Type of principal associated with the principal Id.')
 param principalType string
@@ -22,7 +23,7 @@ resource assignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   properties: {
     principalId: principalId
     roleDefinitionId: roleDefinitionId
-    principalType: principalType
+    principalType: principalType != 'None' ? principalType : null
   }
 }
 

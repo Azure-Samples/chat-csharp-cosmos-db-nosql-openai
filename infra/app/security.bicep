@@ -52,12 +52,12 @@ module registryUserAssignment '../core/security/role/assignment.bicep' = if (!em
   }
 }
 
-module openaiAppAssignment '../core/database/cosmos-db/nosql/role/assignment.bicep' = if (!empty(appPrincipalId)) {
+module openaiAppAssignment '../core/security/role/assignment.bicep' = if (!empty(appPrincipalId)) {
   name: 'openai-role-assignment-read-app'
   params: {
-    targetAccountName: database.name // Existing account
-    roleDefinitionId: nosqlDefinition.outputs.id // New role definition
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd') // Cognitive Services OpenAI User built-in role
     principalId: appPrincipalId // Principal to assign role
+    principalType: 'None' // Don't specify the principal type
   }
 }
 
