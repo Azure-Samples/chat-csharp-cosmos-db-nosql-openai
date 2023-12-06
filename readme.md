@@ -2,6 +2,8 @@
 
 This sample chat application answers questions from the user and tracks chat history across conversations. 
 
+![Screenshot of the application with multiple conversation streams and an active conversation on the seating capacity for a sports stadium.](assets/screenshot.png)
+
 ## Quickstart
 
 Use the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli) to get started with this project quickly.
