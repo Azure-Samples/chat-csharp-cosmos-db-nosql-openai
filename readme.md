@@ -14,7 +14,7 @@ Use the [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-
 
 - [Azure Developer CLI](https://aka.ms/azd-install)
 - [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) 
-- [Docker Desktop]()
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ### Instructions
 
