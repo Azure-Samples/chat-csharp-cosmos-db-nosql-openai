@@ -47,7 +47,7 @@ If you make changes to the application code, you can run `azd deploy` to deploy 
 
 A development container is available with [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0), [Azure CLI](https://learn.microsoft.com/cli/azure/), and [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli) already pre-installed.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/cosmosdb-chatgpt?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/chat-csharp-cosmos-db-nosql-openai?quickstart=1)
 
 ## Technology stack
 
