@@ -13,6 +13,7 @@ param location string
 param principalId string = ''
 
 // Optional parameters
+param openAiAccountName string = ''
 param cosmosDbAccountName string = ''
 param containerRegistryName string = ''
 param containerAppsEnvName string = ''
@@ -45,21 +46,22 @@ module identity 'app/identity.bicep' = {
   }
 }
 
+module ai 'app/ai.bicep' = {
+  name: 'ai'
+  scope: resourceGroup
+  params: {
+    accountName: !empty(openAiAccountName) ? openAiAccountName : '${abbreviations.openAiAccount}-${resourceToken}'
+    location: location
+    tags: tags
+  }
+}
+
 module database 'app/database.bicep' = {
   name: 'database'
   scope: resourceGroup
   params: {
     accountName: !empty(cosmosDbAccountName) ? cosmosDbAccountName : '${abbreviations.cosmosDbAccount}-${resourceToken}'
     location: location
-    tags: tags
-  }
-}
-
-module data 'app/data.bicep' = {
-  name: 'data'
-  scope: resourceGroup
-  params: {
-    databaseAccountName: database.outputs.accountName
     tags: tags
   }
 }
@@ -81,6 +83,7 @@ module web 'app/web.bicep' = {
     envName: !empty(containerAppsEnvName) ? containerAppsEnvName : '${abbreviations.containerAppsEnv}-${resourceToken}'
     appName: !empty(containerAppsAppName) ? containerAppsAppName : '${abbreviations.containerAppsApp}-${resourceToken}'
     databaseAccountEndpoint: database.outputs.endpoint
+    openAiAccountEndpoint: ai.outputs.endpoint
     userAssignedManagedIdentity: {
       resourceId: identity.outputs.resourceId
       clientId: identity.outputs.clientId
@@ -103,8 +106,8 @@ module security 'app/security.bicep' = {
 
 // Database outputs
 output AZURE_COSMOS_ENDPOINT string = database.outputs.endpoint
-output AZURE_COSMOS_DATABASE_NAME string = data.outputs.database.name
-output AZURE_COSMOS_CONTAINER_NAMES array = map(data.outputs.containers, c => c.name)
+output AZURE_COSMOS_DATABASE_NAME string = database.outputs.database.name
+output AZURE_COSMOS_CONTAINER_NAMES array = map(database.outputs.containers, c => c.name)
 
 // Container outputs
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = registry.outputs.endpoint
