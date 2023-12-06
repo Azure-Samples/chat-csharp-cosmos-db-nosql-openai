@@ -18,7 +18,7 @@ public class CosmosDbService
     /// <param name="endpoint">Endpoint URI.</param>
     /// <param name="databaseName">Name of the database to access.</param>
     /// <param name="containerName">Name of the container to access.</param>
-    /// <exception cref="ArgumentNullException">Thrown when endpoint, key, databaseName, or containerName is either null or empty.</exception>
+    /// <exception cref="ArgumentNullException">Thrown when endpoint, databaseName, or containerName is either null or empty.</exception>
     /// <remarks>
     /// This constructor will validate credentials and create a service client instance.
     /// </remarks>
