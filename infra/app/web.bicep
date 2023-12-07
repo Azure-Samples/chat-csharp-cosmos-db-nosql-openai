@@ -12,6 +12,9 @@ param databaseAccountEndpoint string
 @description('Endpoint for Azure OpenAI account.')
 param openAiAccountEndpoint string
 
+@description('Maximum number of conversation tokens. Defaults to 2000.')
+param openAiMaxConversationTokens int = 2000
+
 type managedIdentity = {
   resourceId: string
   clientId: string
@@ -63,7 +66,7 @@ module containerAppsApp '../core/host/container-apps/app.bicep' = {
       }
       {
         name: 'OPENAI__MAXCONVERSATIONTOKENS' // Name of the environment variable referenced in the application
-        value: '2000' // Static value
+        value: string(openAiMaxConversationTokens) // Static value
       }
       {
         name: 'AZURE_CLIENT_ID' // Name of the environment variable referenced in the application
