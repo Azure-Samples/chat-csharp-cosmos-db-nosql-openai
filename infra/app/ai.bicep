@@ -4,6 +4,9 @@ param accountName string
 param location string = resourceGroup().location
 param tags object = {}
 
+var maxConversationTokens = 2000
+var modelName = 'chatmodel'
+
 module openAiAccount '../core/ai/cognitive-services/account.bicep' = {
   name: 'openai-account'
   params: {
@@ -19,7 +22,7 @@ module openAiAccount '../core/ai/cognitive-services/account.bicep' = {
 module openAiModelDeployment '../core/ai/cognitive-services/deployment.bicep' = {
   name: 'openai-model-deployment'
   params: {
-    name: 'chatmodel'
+    name: modelName
     parentAccountName: openAiAccount.outputs.name
     skuName: 'Standard'
     skuCapacity: 20
@@ -31,4 +34,6 @@ module openAiModelDeployment '../core/ai/cognitive-services/deployment.bicep' = 
 
 output endpoint string = openAiAccount.outputs.endpoint
 output accountName string = openAiAccount.outputs.name
-output modelDeploymentName string = openAiModelDeployment.outputs.name
+
+output modelDeploymentName string = modelName
+output maxConversationTokens int = maxConversationTokens

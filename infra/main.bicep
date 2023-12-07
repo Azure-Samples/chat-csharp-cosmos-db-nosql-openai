@@ -91,7 +91,8 @@ module web 'app/web.bicep' = {
     envName: !empty(containerAppsEnvName) ? containerAppsEnvName : '${abbreviations.containerAppsEnv}-${resourceToken}'
     appName: !empty(containerAppsAppName) ? containerAppsAppName : '${abbreviations.containerAppsApp}-${resourceToken}'
     databaseAccountEndpoint: database.outputs.endpoint
-    openAiAccountEndpoint: ai.outputs.endpoint
+    openAiAccountEndpoint: ai.outputs.endpoint    
+    openAiMaxConversationTokens: ai.outputs.maxConversationTokens
     userAssignedManagedIdentity: {
       resourceId: identity.outputs.resourceId
       clientId: identity.outputs.clientId
@@ -130,3 +131,11 @@ output AZURE_USER_ASSIGNED_IDENTITY_NAME string = identity.outputs.name
 
 // Security outputs
 output AZURE_NOSQL_ROLE_DEFINITION_ID string = security.outputs.roleDefinitions.nosql
+
+// Application environment variables
+output COSMOSDB__ENDPOINT string = database.outputs.endpoint
+output COSMOSDB__DATABASE string = database.outputs.database.name
+output COSMOSDB__CONTAINER string = database.outputs.containers[0].name
+output OPENAI__ENDPOINT string = ai.outputs.endpoint
+output OPENAI__MODELNAME string = ai.outputs.modelDeploymentName
+output OPENAI__MAXCONVERSATIONTOKENS string = string(ai.outputs.maxConversationTokens)
