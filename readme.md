@@ -7,13 +7,14 @@ languages:
 - bicep
 products:
 - azure
+- azure-openai-service
 - azure-container-apps
 - azure-container-registry
 - azure-cosmos-db
 - blazor
 - aspnet-core
 - entra-id
-urlFragment: template
+urlFragment: chat-csharp-cosmos-db-nosql-openai
 name: Chat application with Azure Cosmos DB for NoSQL and Azure OpenAI
 description: Sample application that implements multiple chat threads using the Azure OpenAI for completions and Azure Cosmos DB for NoSQL for storage.
 ---
