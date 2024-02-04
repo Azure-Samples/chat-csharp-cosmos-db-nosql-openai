@@ -7,7 +7,7 @@ languages:
 - bicep
 products:
 - azure
-- azure-openai-service
+- azure-openai
 - azure-container-apps
 - azure-container-registry
 - azure-cosmos-db
