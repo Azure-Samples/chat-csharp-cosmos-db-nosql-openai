@@ -1,25 +1,3 @@
----
-page_type: sample
-languages:
-- azdeveloper
-- aspx-csharp
-- csharp
-- bicep
-products:
-- azure
-- azure-openai
-- azure-container-apps
-- azure-container-registry
-- azure-cosmos-db
-- blazor
-- aspnet-core
-- entra-id
-urlFragment: template
-name: Chat application with Azure Cosmos DB for NoSQL and Azure OpenAI
-description: Sample application that implements multiple chat threads using the Azure OpenAI for completions and Azure Cosmos DB for NoSQL for storage.
----
-<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
-
 # Chat application with Azure Cosmos DB for NoSQL and Azure OpenAI
 
 This sample chat application answers questions from the user and tracks chat history across conversations. 
